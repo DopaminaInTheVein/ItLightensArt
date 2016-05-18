@@ -70,6 +70,22 @@ function OnGuardRemoveBox( reaction_time )
 	p:print( "OnGuardRemoveBox: "..reaction_time.."\n" )
 end
 
+-- Doors
+------------------------------------------
+function OnDoorOpening()
+	p:print( "OnDoorOpening\n" )
+end
+function OnDoorOpened()
+	p:print( "OnDoorOpened\n" )
+end
+function OnDoorClosing()
+	p:print( "OnDoorClosing\n" )
+end
+function OnDoorClosed()
+	p:print( "OnDoorClosed\n" )
+end
+------------------------------------------
+
 function OnLevelStart( param )
 	p:print("OnLevelStart\n")
 	CallFunction("OnLevelStart_"..param)
