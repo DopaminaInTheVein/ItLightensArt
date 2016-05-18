@@ -133,12 +133,26 @@ fn findAllHelpers tHelper = (
 	else return (findAllHelpersList #(tHelper))
 )
 
+---------------------------------------------------------
+-- Buscar Class Object
+---------------------------------------------------------
+fn findClass tClass = (
+	local res = undefined
+	for child in _parsingObject.children do (
+		if ( classof child == tClass ) then (
+			res = child
+			exit
+		)
+	)
+	return res
+)
+
 -- LUA --
 -----------------------------------------------------------------------------------------------------------------
 --Append Lua
 fn luaAppend nameFunc code = (
 	_lua_code += "function " + nameFunc + "( )" + "\n"
-	_lua_code += code
+	_lua_code += (code + "()")
 	_lua_code += "\nend\n\n"
 )
 
