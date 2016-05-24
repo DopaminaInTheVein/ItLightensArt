@@ -1,0 +1,130 @@
+<entities>
+<entity>
+<tags
+   tags=""/>
+<name
+   name="Plane001"/>
+<transform
+   pos="-27.3092 0 6.37845"
+   quat="0 0 0 1.0"
+   scale="1.0"/>
+<render_static_mesh
+   name="static_meshes/prueba_creacion/Plane001.static_mesh"/>
+<rigidbody
+   type_collision="static"/>
+
+</entity>
+<entity>
+<tags
+   tags=""/>
+<name
+   name="Box001"/>
+<transform
+   pos="-24.206 0 9.73924"
+   quat="0 0 0 1.0"
+   scale="1.0"/>
+<render_static_mesh
+   name="static_meshes/prueba_creacion/Box001.static_mesh"/>
+<rigidbody
+   type_collision="static"/>
+
+</entity>
+<entity>
+<tags
+   tags="player"/>
+<player/>
+<life
+   points="10"/>
+<name
+   name="player_1"/>
+<transform
+   pos="-45.4773 1.63 43.0702"
+   quat="0 0 0 1.0"
+   scale="1.0"/>
+<skeleton
+   model="skeletons/player/player.skeleton"/>
+<render_static_mesh
+   name="skeletons/player/player.static_mesh"/>
+<character_controller
+   radius="0.3"
+   height="0.7"/>
+
+</entity>
+<entity>
+<tags
+   tags="camera_main"/>
+<camera
+   znear="0.1"
+   zfar="250.0"
+   fov="60.0"/>
+<controller_3rd_person/>
+<name
+   name="camController_1"/>
+<transform
+   pos="-29.0689 65.7094 -1.76017"
+   quat="0 0.707104 0 0.707104"
+   scale="1.0"/>
+
+</entity>
+<entity>
+<tags
+   tags=""/>
+<light_point
+   color="1.0 1.0 1.0 1.0"
+   in_radius="80.0"
+   out_radius="200.0"/>
+<name
+   name="Omni001"/>
+<transform
+   pos="-38.648 6.81127 41.0848"
+   quat="0 0 0 1.0"
+   scale="1.0"/>
+
+</entity>
+<entity>
+<tags
+   tags=""/>
+<light_point
+   color="1.0 1.0 1.0 1.0"
+   in_radius="80.0"
+   out_radius="200.0"/>
+<name
+   name="Omni002"/>
+<transform
+   pos="-57.3801 6.81127 41.0848"
+   quat="0 0 0 1.0"
+   scale="1.0"/>
+
+</entity>
+<entity>
+<tags
+   tags=""/>
+<light_point
+   color="1.0 1.0 1.0 1.0"
+   in_radius="80.0"
+   out_radius="200.0"/>
+<name
+   name="Omni003"/>
+<transform
+   pos="-57.3801 6.81127 52.1756"
+   quat="0 0 0 1.0"
+   scale="1.0"/>
+
+</entity>
+<entity>
+<tags
+   tags=""/>
+<light_point
+   color="1.0 1.0 1.0 1.0"
+   in_radius="80.0"
+   out_radius="200.0"/>
+<name
+   name="Omni004"/>
+<transform
+   pos="-42.2101 1.38456 42.1285"
+   quat="0 0 0 1.0"
+   scale="1.0"/>
+
+</entity>
+
+</entities>
