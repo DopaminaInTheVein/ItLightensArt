@@ -8,6 +8,11 @@ fn parseSpeeds xml = (
 	parsePropAttribute xml "speedClosing" "speedClosing"
 )
 
+fn parseSpeedsElevator xml = (
+	parsePropAttribute xml "speedUp" "speedUp"
+	parsePropAttribute xml "speedDown" "speedDown"
+)
+
 fn parseTarget xml = (
 	local target = findClass Point
 	if target != undefined then (
@@ -19,6 +24,10 @@ fn parseTarget xml = (
 
 fn parseLocked xml = (
 	parsePropAttribute xml "locked" "locked"
+)
+
+fn parsePolarity xml = (
+	parsePropAttribute xml "pol" "pol"
 )
 
 --- COMPONENTS---
@@ -33,6 +42,19 @@ fn _parse_magnet_door = (
 	parseLocked xml
 	--Speeds
 	parseSpeeds xml
+	--Target
+	parseTarget xml
+	--Polarity
+	parsePolarity xml
+)
+
+-- Magnet Door --
+--------------------
+fn _parse_elevator = (
+	--Elevator component
+	local xml = XML_PARSING.addChild "elevator"
+	--Speeds elevator
+	parseSpeedsElevator xml
 	--Target
 	parseTarget xml
 )

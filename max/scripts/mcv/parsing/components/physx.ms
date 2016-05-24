@@ -77,6 +77,14 @@ fn parseRigidBody parent collider = (
 			xml.addAttr "mass" mass
 		)
 	)
+	
+	--Set Kinematic
+	if collider != undefined then (
+		local kinematic = (getUserProp collider "kinematic")
+		if kinematic != undefined then (
+			xml.addAttr "kinematic" kinematic
+		)
+	)
 )
 
 fn parseRigidBodyTrigger parent = (
@@ -137,12 +145,18 @@ fn _parse_trigger = (
 	-- Exit
 	local onExit = getUserProp _parsingObject "onLeave"
 	
-	-- Action
+	-- Action Player
 	local onAction = getUserProp _parsingObject "onAction"
+	
+	-- Action Scientist
+	local onActionSci = getUserProp _parsingObject "onActionSci"
+	
+	-- Action Mole
+	local onActionMole = getUserProp _parsingObject "onActionMole"
 	
 	-- Script (component)
 	if component != undefined then (
-		if (onEnter != undefined) or (onExit != undefined) or (onAction != undefined) then (
+		if (onEnter != undefined) or (onExit != undefined) or (onAction != undefined) or (onActionSci != undefined) or (onActionMole != undefined) then (
 			throw "No puede ser un trigger de componente y logico a la vez!"
 		)
 		XML_PARSING.addChild component
@@ -150,7 +164,7 @@ fn _parse_trigger = (
 		--Add trigger lua component
 		local xml = XML_PARSING.addChild "trigger_lua"
 			
-		if (onEnter == undefined) and (onExit == undefined) and (onAction != undefined) then (
+		if (onEnter == undefined) and (onExit == undefined) and (onAction == undefined) then (
 			throw "El trigger debe ser lógico o de componente!"
 		)
 		-- Logic trigger on enter
@@ -172,6 +186,24 @@ fn _parse_trigger = (
 			local action = getUserProp _parsingObject "action"
 			if action == undefined then (action = "activate")
 			xml.addAttr "action" action
+		)
+		
+		-- Logic trigger on action Scientist
+		if onActionSci != undefined then (
+			local nameFunc = "OnActionSci_" + _parsingObject.name
+			luaAppend nameFunc onActionSci
+			local action = getUserProp _parsingObject "actionSci"
+			if action == undefined then (action = "activate")
+			xml.addAttr "actionSci" action
+		)
+		
+		-- Logic trigger on action Mole
+		if onActionMole != undefined then (
+			local nameFunc = "OnActionMole_" + _parsingObject.name
+			luaAppend nameFunc onActionMole
+			local action = getUserProp _parsingObject "actionMole"
+			if action == undefined then (action = "activate")
+			xml.addAttr "actionMole" action
 		)
 	)
 )
