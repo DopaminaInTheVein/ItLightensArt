@@ -1,3 +1,0 @@
-<static_mesh>
-  <slot mesh="meshes/prueba_creacion/Plane001.mesh" material="materials/plano.material" mesh_idx="0"/>
-</static_mesh>
